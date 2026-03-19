@@ -65,44 +65,69 @@
         section { margin-bottom: 60px; }
         h2 { border-left: 8px solid #fff; padding-left: 15px; text-transform: uppercase; margin-bottom: 30px; }
 
-        /* --- ÖZEL MASKELEME PLAYER (YouTube'u Gizleme) --- */
+        /* --- ÇİFTLİ ÖZEL MASKELEME PLAYER --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            justify-items: center;
+        }
+
         .video-mask {
             width: 100%;
-            max-width: 400px; /* Shorts dikey yapısı için ideal */
-            margin: 0 auto;
+            max-width: 380px;
             aspect-ratio: 9 / 16;
             position: relative;
-            overflow: hidden; /* Dışarı taşan YouTube arayüzünü gizler */
+            overflow: hidden;
             border-radius: 20px;
-            border: 3px solid #222;
-            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+            border: 2px solid #222;
+            background: #000;
+            box-shadow: 0 5px 20px rgba(255,255,255,0.05);
         }
 
         .video-mask iframe {
             position: absolute;
-            /* Videoyu %15 büyütüp kenarlara iterek logoları kadraj dışı bırakıyoruz */
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
+            /* YouTube logolarını gizlemek için %115 büyütüp kaydırıyoruz */
+            top: -7.5%;
+            left: -7.5%;
+            width: 115%;
+            height: 115%;
             border: none;
         }
 
-        /* --- DUYURULAR --- */
-        .duyuru-alani {
-            background: #111;
-            border: 1px dashed #fff;
+        /* --- SON MAÇ VE DUYURU --- */
+        .mac-sonucu {
+            background: #1a1a1a;
+            border: 2px solid #fff;
             padding: 30px;
             text-align: center;
             border-radius: 10px;
+            margin-bottom: 30px;
         }
 
-        .duyuru-item {
-            font-size: 1.2em;
-            color: #fff;
-            margin: 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #222;
+        .skor { font-size: 2.5em; font-weight: bold; letter-spacing: 5px; margin: 10px 0; }
+        
+        .iletisim-kutusu {
+            background: #ffffff;
+            color: #000000;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .hashtag {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #888;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* MOBİL AYAR */
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
         }
 
     </style>
@@ -132,21 +157,33 @@
 
     <section id="medya">
         <h2>CEPHE MEDYA</h2>
-        <div class="video-mask">
-            <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?playlist=FMtGeLAtUgE,KuEOPoky6j8&controls=1&modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe>
+        <div class="video-grid">
+            
+            <div class="video-mask">
+                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?controls=1&modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe>
+            </div>
+
+            <div class="video-mask">
+                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8?controls=1&modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe>
+            </div>
+
         </div>
-        <p style="text-align: center; color: #555; margin-top: 15px; font-size: 0.9em;">
-            (Videolar sırayla oynatılır. Ses için videoya dokunabilirsiniz.)
-        </p>
     </section>
 
     <section id="duyurular">
-        <h2>GÜNCEL DUYURULAR</h2>
-        <div class="duyuru-alani">
-            <div class="duyuru-item">📢 Yeni sezon tribün hazırlıklarımız başlamıştır.</div>
-            <div class="duyuru-item">🚩 Deplasman organizasyonları için temsilcilerimizle görüşün.</div>
-            <div class="duyuru-item">⚪⚫ LiseCephe ürünleri yakında satışta!</div>
+        <h2>GÜNCEL DURUM</h2>
+        
+        <div class="mac-sonucu">
+            <p style="text-transform: uppercase; color: #888;">Son Basketbol Galibiyeti</p>
+            <div class="skor">77 - 74</div>
+            <p style="font-size: 1.2em;">VAN ATATÜRK ANADOLU LİSESİ KAZANDI!</p>
         </div>
+
+        <div class="iletisim-kutusu">
+            📸 Instagram: <a href="https://instagram.com/aal_lisecephe" style="color: #000; text-decoration: underline;">@aal_lisecephe</a>
+        </div>
+
+        <span class="hashtag">#umuteteninizindeyiz</span>
     </section>
 
 </div>
