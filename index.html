@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiseCephe | Van Atatürk Anadolu Lisesi</title>
+    <style>
+        /* --- TEMEL STİLLER (Global) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Koyu Gri/Siyah Arka Plan */
+            color: #ffffff; /* Beyaz Yazı */
+        }
+
+        /* --- ÜST BİLGİ (Header) --- */
+        header {
+            background-color: #000000; /* Tam Siyah */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #ffffff; /* Beyaz Alt Çizgi */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-transform: uppercase; /* Tüm harfler büyük */
+            letter-spacing: 3px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        /* --- NAVİGASYON (Menü) --- */
+        nav {
+            background-color: #333333;
+            text-align: center;
+            padding: 10px 0;
+            position: sticky; /* Sayfa kaydıkça tepede kalır */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffffff;
+            color: #000000; /* Üzerine gelince renkler yer değiştirir */
+            border-radius: 5px;
+        }
+
+        /* --- ANA İÇERİK (Main) --- */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #000000; /* Bölüm arka planı siyah */
+            border: 1px solid #333333;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- MAÇ KARTI TASARIMI --- */
+        .mac-karti {
+            background-color: #262626; /* Biraz daha açık siyah */
+            border-left: 10px solid #ffffff; /* Sol tarafta beyaz şerit */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .takimlar {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .vs {
+            color: #d32f2f; /* Kırmızı "VS" - İsteğe bağlı */
+            margin: 0 10px;
+        }
+
+        .detaylar {
+            text-align: right;
+            color: #cccccc;
+        }
+
+        /* --- BESTELER BÖLÜMÜ --- */
+        .beste {
+            font-style: italic;
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border: 1px dashed #444444;
+        }
+
+        /* --- MOBİL UYUMLULUK (Responsive) --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            .mac-karti { flex-direction: column; text-align: center; }
+            .detaylar { text-align: center; margin-top: 10px; }
+            nav a { padding: 10px 10px; font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LISE CEPHE</h1>
+    <p>Van Atatürk Anadolu Lisesi Taraftar Grubu</p>
+</header>
+
+<nav>
+    <a href="#anasayfa">Ana Sayfa</a>
+    <a href="#maclar">Maçlar</a>
+    <a href="#besteler">Besteler</a>
+    <a href="#galeri">Galeri</a>
+</nav>
+
+<div class="container">
+
+    <section id="anasayfa">
+        <h2>BİZ KİMİZ?</h2>
+        <p>Van Atatürk Anadolu Lisesi'nin kalbi, tribündeki sesi! LiseCephe, sadece bir taraftar grubu değil, okul ruhunu her branşta ateşleyen, omuz omuza duran bir ailedir. Siyahın asaleti, beyazın dürüstlüğüyle okul takımımızın her zaman yanındayız.</p>
+    </section>
+
+    <section id="maclar">
+        <h2>GELECEK MAÇ</h2>
+        <div class="mac-karti">
+            <div class="takimlar">VAAL <span class="vs">VS</span> Rakip Lise</div>
+            <div class="detaylar">
+                <p><strong>Tarih:</strong> 15 Nisan 2024</p>
+                <p><strong>Saat:</strong> 14:00</p>
+                <p><strong>Yer:</strong> Okul Kapalı Spor Salonu</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="besteler">
+        <h2>TRİBÜN SESLERİ</h2>
+        <div class="beste">
+            <p>"Atatürk Lisesi, burası bizim evimiz,"</p>
+            <p>"Siyah-Beyaz renklerle, zafer bizim sözümüz!"</p>
+        </div>
+        <div class="beste">
+            <p>"Van'ın gururu, okulun onuru,"</p>
+            <p>"LiseCephe geliyor, tribünler durulur!"</p>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
