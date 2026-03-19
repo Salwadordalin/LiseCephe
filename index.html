@@ -7,7 +7,7 @@
     <style>
         /* --- GENEL AYARLAR --- */
         html {
-            scroll-behavior: smooth; /* Tarayıcı bazlı yumuşak kaydırma */
+            scroll-behavior: smooth;
         }
         
         body {
@@ -41,7 +41,7 @@
         header h1 { font-size: 3.5em; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
         header p { font-size: 1.2em; letter-spacing: 5px; opacity: 0.8; }
 
-        /* --- NAVİGASYON (SABİT) --- */
+        /* --- NAVİGASYON --- */
         nav {
             background: #111;
             padding: 15px 0;
@@ -50,7 +50,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #333;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         nav a {
@@ -61,25 +60,26 @@
             text-transform: uppercase;
             font-size: 0.9em;
             transition: 0.3s;
-            display: inline-block;
         }
 
         nav a:hover { 
             background: #fff; 
             color: #000; 
             border-radius: 4px;
-            transform: translateY(-2px);
         }
 
         /* --- İÇERİK --- */
         .container { max-width: 900px; margin: 60px auto; padding: 0 25px; }
+        
+        /* Navigasyon yüksekliği kadar boşluk bırakıyoruz ki başlıklar altta kalmasın */
         section { 
             margin-bottom: 100px; 
-            padding-top: 20px; /* Navigasyon çubuğunun altına gelmemesi için */
+            scroll-margin-top: 80px; 
         }
+
         h2 { border-left: 10px solid #fff; padding-left: 20px; text-transform: uppercase; margin-bottom: 40px; }
 
-        /* --- ÇİFTLİ ÖZEL MASKELEME PLAYER --- */
+        /* --- ÖZEL MASKELEME PLAYER --- */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -95,8 +95,6 @@
             overflow: hidden;
             border-radius: 25px;
             border: 2px solid #222;
-            background: #000;
-            box-shadow: 0 10px 40px rgba(255,255,255,0.05);
         }
 
         .video-mask iframe {
@@ -108,82 +106,23 @@
             border: none;
         }
 
-        /* --- SON MAÇ VE DUYURU --- */
+        /* --- GÜNCEL DURUM (DÜZELTİLDİ) --- */
+        .duyuru-alani {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .mac-sonucu {
             background: #1a1a1a;
-            border: 2px solid #fff;
-            padding: 40px;
+            border: 2px solid #ffffff;
+            padding: 30px;
             text-align: center;
             border-radius: 15px;
-            margin-bottom: 40px;
         }
 
-        .skor { font-size: 3em; font-weight: bold; letter-spacing: 8px; margin: 15px 0; }
-        
-        .iletisim-kutusu {
-            background: #ffffff;
-            color: #000000;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
+        .skor-baslik { color: #888; text-transform: uppercase; font-size: 0.9em; letter-spacing: 2px; }
+        .skor-deger { font-size: 3.5em; font-weight: bold; letter-spacing: 8px; margin: 10px 0; }
+        .takim-ismi { font-size: 1.2em; font-weight: bold; color: #fff; }
 
-        .hashtag {
-            display: block;
-            margin-top: 30px;
-            font-size: 1.5em;
-            color: #555;
-            font-style: italic;
-            text-align: center;
-        }
-
-        /* MOBİL AYAR */
-        @media (max-width: 768px) {
-            .video-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.5em; }
-        }
-
-    </style>
-</head>
-<body>
-
-<header id="top">
-    <img src="https://i.postimg.cc/sg8dZwnC/Screenshot_20260319_225910_Gallery.jpg" alt="LiseCephe Logo" class="logo">
-    <h1>LİSE CEPHE</h1>
-    <p>VAN ATATÜRK ANADOLU LİSESİ</p>
-</header>
-
-<nav>
-    <a href="#biz-kimiz">BİZ KİMİZ</a>
-    <a href="#medya">MEDYA</a>
-    <a href="#duyurular">DUYURULAR</a>
-</nav>
-
-<div class="container">
-
-    <section id="biz-kimiz">
-        <h2>RUHUMUZ (BİZ KİMİZ)</h2>
-        <p style="font-size: 1.2em; line-height: 2; color: #ccc;">
-            LiseCephe, Van'ın en köklü eğitim çınarı olan Atatürk Anadolu Lisesi'nin sarsılmaz gücüdür. Biz sadece tribünde değil, okulun her koridorunda omuz omuza duran bir kardeşlik bağıyız. Siyahın asaleti ve beyazın duruluğuyla armamızı her platformda gururla temsil ediyoruz.
-        </p>
-    </section>
-
-    <section id="medya">
-        <h2>CEPHE MEDYA</h2>
-        <div class="video-grid">
-            <div class="video-mask">
-                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?controls=1&modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe>
-            </div>
-            <div class="video-mask">
-                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8?controls=1&modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="duyurular">
-        <h2>GÜNCEL DURUM</h2>
-        
-        <div class="mac-sonucu">
-            
+        .iletisim
