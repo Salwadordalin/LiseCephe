@@ -15,58 +15,60 @@
             scroll-behavior: smooth;
         }
 
-        /* --- AKAN YAZI ŞERİDİ (Marquee) --- */
-        .marquee-container {
-            background: #ffffff;
-            color: #000000;
-            padding: 10px 0;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #333;
-        }
-
-        /* --- HEADER --- */
+        /* --- HEADER (Okul Görseli Arka Plan) --- */
         header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511406384665-270571899bfd?auto=format&fit=crop&w=1000&q=80'); /* Temsili Tribün Görseli */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/QtG2fVGm/d_w_a_f_e_s_g_r_d_h_t_f_y_j_k_g_t_u_o_f_m_h_d_g_n_s_x_f.jpg');
             background-size: cover;
             background-position: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             border-bottom: 5px solid #ffffff;
         }
 
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 20px;
+            object-fit: cover;
+            background: #000;
+        }
+
         header h1 {
-            font-size: 4em;
+            font-size: 3.5em;
             margin: 0;
-            text-shadow: 3px 3px 0px #333;
+            text-shadow: 2px 2px 10px #000;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         header p {
-            font-size: 1.5em;
-            margin-top: 10px;
+            font-size: 1.2em;
             letter-spacing: 5px;
             text-transform: uppercase;
+            opacity: 0.9;
         }
 
         /* --- NAVİGASYON --- */
         nav {
-            background: #1a1a1a;
+            background: #111;
             padding: 15px 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #333;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 25px;
+            padding: 10px 20px;
             font-weight: bold;
             transition: 0.3s;
             text-transform: uppercase;
+            font-size: 0.9em;
         }
 
         nav a:hover {
@@ -75,107 +77,109 @@
             border-radius: 4px;
         }
 
-        /* --- İÇERİK --- */
+        /* --- İÇERİK KONTEYNER --- */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
-        section { margin-bottom: 60px; }
+        section { margin-bottom: 80px; }
 
         h2 {
-            font-size: 2.5em;
-            border-left: 10px solid #ffffff;
-            padding-left: 20px;
-            margin-bottom: 30px;
+            font-size: 2em;
+            border-left: 8px solid #ffffff;
+            padding-left: 15px;
+            margin-bottom: 40px;
             text-transform: uppercase;
         }
 
-        /* --- BESTE KARTLARI (Yaratıcı Kısım) --- */
+        /* --- VİDEO BÖLÜMÜ (Editler) --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-wrapper {
+            background: #111;
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* Shorts formatı için */
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* --- BESTE KARTLARI --- */
         .beste-listesi { display: grid; gap: 20px; }
 
         .beste-kart {
-            background: #111;
-            border: 2px solid #333;
+            background: #0a0a0a;
+            border: 1px solid #222;
             padding: 25px;
-            border-radius: 8px;
-            transition: 0.4s ease;
-            cursor: pointer;
-            position: relative;
+            border-radius: 4px;
+            transition: 0.3s;
         }
 
         .beste-kart:hover {
-            background: #ffffff;
-            color: #000000;
-            transform: scale(1.03);
-            border-color: #000;
+            background: #fff;
+            color: #000;
         }
 
-        .beste-kart h3 { margin-top: 0; text-transform: uppercase; }
-
-        .beste-kart p { line-height: 1.8; font-style: italic; }
-
-        /* --- ETKİLEŞİMLİ BUTON --- */
-        .action-area {
+        /* --- FOOTER --- */
+        footer {
             text-align: center;
-            padding: 40px;
-            background: #111;
-            border-radius: 15px;
-            border: 1px dashed #fff;
-        }
-
-        .tribun-buton {
-            background: #ffffff;
-            color: #000000;
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .tribun-buton:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+            padding: 60px;
+            background: #050505;
+            color: #444;
+            border-top: 1px solid #111;
         }
 
         /* --- MOBİL UYUM --- */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
             header h1 { font-size: 2.5em; }
-            nav a { display: block; padding: 10px; }
         }
     </style>
 </head>
 <body>
 
-<div class="marquee-container">
-    <marquee scrollamount="12">
-        VAN ATATÜRK ANADOLU LİSESİ'NİN SESİ... LİSECEPHE HER YERDE... ASALETİMİZ SİYAHIMIZDAN, GÜCÜMÜZ BEYAZIMIZDAN!
-    </marquee>
-</div>
-
 <header>
+    <img src="https://i.postimg.cc/sg8dZwnC/Screenshot_20260319_225910_Gallery.jpg" alt="LiseCephe Logo" class="logo">
     <h1>LİSE CEPHE</h1>
     <p>VAN ATATÜRK ANADOLU LİSESİ</p>
 </header>
 
 <nav>
     <a href="#anasayfa">BİZ KİMİZ</a>
-    <a href="#besteler">TRİBÜN SESLERİ</a>
-    <a href="#maclar">MAÇLAR</a>
+    <a href="#medya">CEPHE MEDYA</a>
+    <a href="#besteler">BESTELER</a>
 </nav>
 
 <div class="container">
 
     <section id="anasayfa">
         <h2>RUHUMUZ</h2>
-        <p style="font-size: 1.2em; line-height: 1.8; color: #ccc;">
-            LiseCephe, Van'ın en köklü eğitim kurumlarından biri olan Atatürk Anadolu Lisesi'nin tribündeki sarsılmaz gücüdür. Biz sadece skorlar için değil, armanın onuru için oradayız. Siyahın derinliği, beyazın temizliğiyle her maçta, her branşta tek bir yürek olarak atıyoruz!
+        <p style="font-size: 1.1em; line-height: 1.8; color: #ccc;">
+            LiseCephe, Van'ın köklü eğitim çınarı Atatürk Anadolu Lisesi'nin sarsılmaz gücüdür. Siyahın asaleti ve beyazın duruluğuyla, armamızı Van Kalesi'nin gölgesinde gururla temsil ediyoruz.
         </p>
+    </section>
+
+    <section id="medya">
+        <h2>CEPHE MEDYA (EDİTLER)</h2>
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE" title="LiseCephe Edit 1" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8" title="LiseCephe Edit 2" allowfullscreen></iframe>
+            </div>
+        </div>
     </section>
 
     <section id="besteler">
@@ -184,37 +188,21 @@
             <div class="beste-kart">
                 <h3>Siyah Beyaz Sevda</h3>
                 <p>"Siyahına büründük, beyazına vurulduk,<br>
-                   Atatürk Lisesi'nin yolunda biz yorulduk.<br>
-                   Van Kalesi şahit, zafer bizim olacak,<br>
-                   LiseCephe meşalesi elbet bir gün yanacak!"</p>
+                   Atatürk Lisesi'nin yolunda biz yorulduk..."</p>
             </div>
             <div class="beste-kart">
                 <h3>Vazgeçilmez Aşk</h3>
                 <p>"Kaderimiz yazılmış bu şanlı okulda,<br>
-                   Gönlümüz hep seninle, her zorlu yolda.<br>
-                   LiseCephe burada, sesimiz hiç dinmez,<br>
-                   Bu asil siyah-beyaz asla pes etmez!"</p>
+                   Gönlümüz hep seninle, her zorlu yolda..."</p>
             </div>
         </div>
     </section>
 
-    <section class="action-area">
-        <h3>TRİBÜNÜ HAREKETE GEÇİR!</h3>
-        <p>Maç gününe hazır mısın?</p>
-        <button class="tribun-buton" onclick="atesle()">TRİBÜNÜ ATEŞLE! 🥁</button>
-    </section>
-
 </div>
 
-<footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8em;">
-    &copy; 2026 LiseCephe Web Team | Van Atatürk Anadolu Lisesi
+<footer>
+    &copy; 2026 LiseCephe | Van Atatürk Anadolu Lisesi Taraftar Grubu
 </footer>
-
-<script>
-function atesle() {
-    alert("OMUZ OMUZA! LİSECEPHE BURADA! 📢 \n\nVan Atatürk Anadolu Lisesi ruhuyla tribünler ayağa!");
-}
-</script>
 
 </body>
 </html>
