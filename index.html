@@ -5,177 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiseCephe | Van Atatürk Anadolu Lisesi</title>
     <style>
-        /* --- TEMEL STİLLER (Global) --- */
+        /* --- GENEL AYARLAR --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Koyu Gri/Siyah Arka Plan */
-            color: #ffffff; /* Beyaz Yazı */
+            background-color: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth;
         }
 
-        /* --- ÜST BİLGİ (Header) --- */
+        /* --- AKAN YAZI ŞERİDİ (Marquee) --- */
+        .marquee-container {
+            background: #ffffff;
+            color: #000000;
+            padding: 10px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #333;
+        }
+
+        /* --- HEADER --- */
         header {
-            background-color: #000000; /* Tam Siyah */
-            color: white;
-            padding: 40px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511406384665-270571899bfd?auto=format&fit=crop&w=1000&q=80'); /* Temsili Tribün Görseli */
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 4px solid #ffffff; /* Beyaz Alt Çizgi */
+            border-bottom: 5px solid #ffffff;
         }
 
         header h1 {
+            font-size: 4em;
             margin: 0;
-            font-size: 3em;
-            text-transform: uppercase; /* Tüm harfler büyük */
-            letter-spacing: 3px;
+            text-shadow: 3px 3px 0px #333;
         }
 
         header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-            opacity: 0.8;
+            font-size: 1.5em;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
         }
 
-        /* --- NAVİGASYON (Menü) --- */
+        /* --- NAVİGASYON --- */
         nav {
-            background-color: #333333;
+            background: #1a1a1a;
+            padding: 15px 0;
             text-align: center;
-            padding: 10px 0;
-            position: sticky; /* Sayfa kaydıkça tepede kalır */
+            position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid #444;
         }
 
         nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 5px;
+            padding: 10px 25px;
             font-weight: bold;
-            text-transform: uppercase;
             transition: 0.3s;
+            text-transform: uppercase;
         }
 
         nav a:hover {
-            background-color: #ffffff;
-            color: #000000; /* Üzerine gelince renkler yer değiştirir */
-            border-radius: 5px;
+            color: #000;
+            background: #fff;
+            border-radius: 4px;
         }
 
-        /* --- ANA İÇERİK (Main) --- */
+        /* --- İÇERİK --- */
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        section {
-            background-color: #000000; /* Bölüm arka planı siyah */
-            border: 1px solid #333333;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
+        section { margin-bottom: 60px; }
 
         h2 {
-            color: #ffffff;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 10px;
+            font-size: 2.5em;
+            border-left: 10px solid #ffffff;
+            padding-left: 20px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
-        /* --- MAÇ KARTI TASARIMI --- */
-        .mac-karti {
-            background-color: #262626; /* Biraz daha açık siyah */
-            border-left: 10px solid #ffffff; /* Sol tarafta beyaz şerit */
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* --- BESTE KARTLARI (Yaratıcı Kısım) --- */
+        .beste-listesi { display: grid; gap: 20px; }
+
+        .beste-kart {
+            background: #111;
+            border: 2px solid #333;
+            padding: 25px;
+            border-radius: 8px;
+            transition: 0.4s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .takimlar {
-            font-size: 1.5em;
+        .beste-kart:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: scale(1.03);
+            border-color: #000;
+        }
+
+        .beste-kart h3 { margin-top: 0; text-transform: uppercase; }
+
+        .beste-kart p { line-height: 1.8; font-style: italic; }
+
+        /* --- ETKİLEŞİMLİ BUTON --- */
+        .action-area {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+            border-radius: 15px;
+            border: 1px dashed #fff;
+        }
+
+        .tribun-buton {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2em;
             font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
         }
 
-        .vs {
-            color: #d32f2f; /* Kırmızı "VS" - İsteğe bağlı */
-            margin: 0 10px;
+        .tribun-buton:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.2);
         }
 
-        .detaylar {
-            text-align: right;
-            color: #cccccc;
-        }
-
-        /* --- BESTELER BÖLÜMÜ --- */
-        .beste {
-            font-style: italic;
-            background-color: #1a1a1a;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            border: 1px dashed #444444;
-        }
-
-        /* --- MOBİL UYUMLULUK (Responsive) --- */
+        /* --- MOBİL UYUM --- */
         @media (max-width: 600px) {
-            header h1 { font-size: 2em; }
-            .mac-karti { flex-direction: column; text-align: center; }
-            .detaylar { text-align: center; margin-top: 10px; }
-            nav a { padding: 10px 10px; font-size: 0.8em; }
+            header h1 { font-size: 2.5em; }
+            nav a { display: block; padding: 10px; }
         }
     </style>
 </head>
 <body>
 
+<div class="marquee-container">
+    <marquee scrollamount="12">
+        VAN ATATÜRK ANADOLU LİSESİ'NİN SESİ... LİSECEPHE HER YERDE... ASALETİMİZ SİYAHIMIZDAN, GÜCÜMÜZ BEYAZIMIZDAN!
+    </marquee>
+</div>
+
 <header>
-    <h1>LISE CEPHE</h1>
-    <p>Van Atatürk Anadolu Lisesi Taraftar Grubu</p>
+    <h1>LİSE CEPHE</h1>
+    <p>VAN ATATÜRK ANADOLU LİSESİ</p>
 </header>
 
 <nav>
-    <a href="#anasayfa">Ana Sayfa</a>
-    <a href="#maclar">Maçlar</a>
-    <a href="#besteler">Besteler</a>
-    <a href="#galeri">Galeri</a>
+    <a href="#anasayfa">BİZ KİMİZ</a>
+    <a href="#besteler">TRİBÜN SESLERİ</a>
+    <a href="#maclar">MAÇLAR</a>
 </nav>
 
 <div class="container">
 
     <section id="anasayfa">
-        <h2>BİZ KİMİZ?</h2>
-        <p>Van Atatürk Anadolu Lisesi'nin kalbi, tribündeki sesi! LiseCephe, sadece bir taraftar grubu değil, okul ruhunu her branşta ateşleyen, omuz omuza duran bir ailedir. Siyahın asaleti, beyazın dürüstlüğüyle okul takımımızın her zaman yanındayız.</p>
-    </section>
-
-    <section id="maclar">
-        <h2>GELECEK MAÇ</h2>
-        <div class="mac-karti">
-            <div class="takimlar">VAAL <span class="vs">VS</span> Rakip Lise</div>
-            <div class="detaylar">
-                <p><strong>Tarih:</strong> 15 Nisan 2024</p>
-                <p><strong>Saat:</strong> 14:00</p>
-                <p><strong>Yer:</strong> Okul Kapalı Spor Salonu</p>
-            </div>
-        </div>
+        <h2>RUHUMUZ</h2>
+        <p style="font-size: 1.2em; line-height: 1.8; color: #ccc;">
+            LiseCephe, Van'ın en köklü eğitim kurumlarından biri olan Atatürk Anadolu Lisesi'nin tribündeki sarsılmaz gücüdür. Biz sadece skorlar için değil, armanın onuru için oradayız. Siyahın derinliği, beyazın temizliğiyle her maçta, her branşta tek bir yürek olarak atıyoruz!
+        </p>
     </section>
 
     <section id="besteler">
         <h2>TRİBÜN SESLERİ</h2>
-        <div class="beste">
-            <p>"Atatürk Lisesi, burası bizim evimiz,"</p>
-            <p>"Siyah-Beyaz renklerle, zafer bizim sözümüz!"</p>
-        </div>
-        <div class="beste">
-            <p>"Van'ın gururu, okulun onuru,"</p>
-            <p>"LiseCephe geliyor, tribünler durulur!"</p>
+        <div class="beste-listesi">
+            <div class="beste-kart">
+                <h3>Siyah Beyaz Sevda</h3>
+                <p>"Siyahına büründük, beyazına vurulduk,<br>
+                   Atatürk Lisesi'nin yolunda biz yorulduk.<br>
+                   Van Kalesi şahit, zafer bizim olacak,<br>
+                   LiseCephe meşalesi elbet bir gün yanacak!"</p>
+            </div>
+            <div class="beste-kart">
+                <h3>Vazgeçilmez Aşk</h3>
+                <p>"Kaderimiz yazılmış bu şanlı okulda,<br>
+                   Gönlümüz hep seninle, her zorlu yolda.<br>
+                   LiseCephe burada, sesimiz hiç dinmez,<br>
+                   Bu asil siyah-beyaz asla pes etmez!"</p>
+            </div>
         </div>
     </section>
 
+    <section class="action-area">
+        <h3>TRİBÜNÜ HAREKETE GEÇİR!</h3>
+        <p>Maç gününe hazır mısın?</p>
+        <button class="tribun-buton" onclick="atesle()">TRİBÜNÜ ATEŞLE! 🥁</button>
+    </section>
+
 </div>
+
+<footer style="text-align: center; padding: 40px; color: #666; font-size: 0.8em;">
+    &copy; 2026 LiseCephe Web Team | Van Atatürk Anadolu Lisesi
+</footer>
+
+<script>
+function atesle() {
+    alert("OMUZ OMUZA! LİSECEPHE BURADA! 📢 \n\nVan Atatürk Anadolu Lisesi ruhuyla tribünler ayağa!");
+}
+</script>
 
 </body>
 </html>
