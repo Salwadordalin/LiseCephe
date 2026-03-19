@@ -56,7 +56,7 @@
             font-size: 0.8em;
         }
 
-        /* --- KONTEYNER (SİYAH EKRANI ÖNLEYEN YAPI) --- */
+        /* --- ANA KONTEYNER --- */
         .main-wrapper {
             max-width: 800px;
             margin: 0 auto;
@@ -67,35 +67,37 @@
 
         section {
             padding: 40px 0;
-            border-bottom: 1px solid #111;
             scroll-margin-top: 80px;
         }
 
         h2 { border-left: 6px solid #fff; padding-left: 15px; font-size: 1.4em; text-transform: uppercase; }
 
-        /* --- VİDEO ALANI --- */
+        /* --- VİDEO MASKELEME (AYAR DÜZELTİLDİ) --- */
         .video-grid {
             display: flex;
-            flex-direction: column; /* Mobilde alt alta olması en güvenlisi */
-            gap: 20px;
+            flex-direction: column;
+            gap: 25px;
         }
 
         .video-mask {
             width: 100%;
-            height: 500px; /* Sabit yükseklik siyah ekranı engeller */
+            height: 550px; /* Sabit yükseklik korundu */
             position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            border: 1px solid #222;
+            overflow: hidden; /* Dışarıyı gizleyen asıl katman */
+            border-radius: 20px;
+            border: 2px solid #222;
+            background: #000;
         }
 
         .video-mask iframe {
             position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
+            /* YOUTUBE GİZLEME AYARI: %130 Büyütme ve Ofset */
+            top: -15%; 
+            left: -15%;
+            width: 130%; 
+            height: 130%;
             border: none;
+            pointer-events: auto;
         }
 
         /* --- DUYURU VE İLETİŞİM --- */
@@ -130,10 +132,10 @@
             font-style: italic;
         }
 
-        /* TABLET VE PC İÇİN YAN YANA VİDEO */
-        @media (min-width: 600px) {
+        /* TABLET VE PC İÇİN YAN YANA */
+        @media (min-width: 650px) {
             .video-grid { flex-direction: row; }
-            .video-mask { height: 450px; }
+            .video-mask { height: 480px; }
         }
     </style>
 </head>
@@ -146,50 +148,4 @@
 </header>
 
 <nav>
-    <a href="#biz-kimiz">BİZ KİMİZ</a>
-    <a href="#medya">MEDYA</a>
-    <a href="#duyurular">DUYURULAR</a>
-</nav>
-
-<div class="main-wrapper">
-
-    <section id="biz-kimiz">
-        <h2>RUHUMUZ (BİZ KİMİZ)</h2>
-        <p style="color: #bbb; line-height: 1.8;">
-            LiseCephe, Van'ın en köklü eğitim çınarı olan Atatürk Anadolu Lisesi'nin sarsılmaz gücüdür. Siyahın asaleti ve beyazın duruluğuyla armamızı her platformda gururla temsil ediyoruz.
-        </p>
-    </section>
-
-    <section id="medya">
-        <h2>CEPHE MEDYA</h2>
-        <div class="video-grid">
-            <div class="video-mask">
-                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?modestbranding=1&rel=0" allowfullscreen></iframe>
-            </div>
-            <div class="video-mask">
-                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8?modestbranding=1&rel=0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="duyurular">
-        <h2>GÜNCEL DURUM</h2>
-        <div class="info-card">
-            <span style="color: #666;">Son Basketbol Galibiyeti</span>
-            <span class="skor-text">77 - 74</span>
-            <span style="font-weight: bold;">VAN ATATÜRK ANADOLU LİSESİ</span>
-        </div>
-
-        <a href="https://instagram.com/aal_lisecephe" target="_blank" class="insta-link">
-            📸 Instagram: @aal_lisecephe
-        </a>
-
-        <div class="hashtag-footer">
-            #umuteteninizindeyiz
-        </div>
-    </section>
-
-</div>
-
-<footer style="text-align: center; padding: 60px; color: #1a1a1a; font-size: 0.8em;">
-    &copy;
+    <a href="#
