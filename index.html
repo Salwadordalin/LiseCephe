@@ -2,48 +2,48 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LiseCephe | Van Atatürk Anadolu Lisesi</title>
     <style>
-        /* --- GENEL AYARLAR --- */
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        /* --- TEMEL AYARLAR --- */
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;
+            background-color: #000000; /* Ana arka plan her zaman siyah */
             color: #ffffff;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER (Görsel Yüklenene Kadar Gri Arka Plan) --- */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/QtG2fVGm/d_w_a_f_e_s_g_r_d_h_t_f_y_j_k_g_t_u_o_f_m_h_d_g_n_s_x_f.jpg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        #1a1a1a url('https://i.postimg.cc/QtG2fVGm/d_w_a_f_e_s_g_r_d_h_t_f_y_j_k_g_t_u_o_f_m_h_d_g_n_s_x_f.jpg');
             background-size: cover;
             background-position: center;
-            padding: 100px 20px;
+            background-repeat: no-repeat;
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 5px solid #ffffff;
+            border-bottom: 4px solid #ffffff;
         }
 
         .logo {
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            border: 3px solid #fff;
+            border: 3px solid #ffffff;
             margin-bottom: 15px;
             object-fit: cover;
+            background-color: #333; /* Logo yüklenene kadar duracak renk */
         }
 
-        header h1 { font-size: 3.5em; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
-        header p { font-size: 1.2em; letter-spacing: 5px; opacity: 0.8; }
+        header h1 { font-size: 3em; margin: 10px 0; text-transform: uppercase; letter-spacing: 3px; }
+        header p { font-size: 1.1em; letter-spacing: 4px; opacity: 0.9; margin: 0; }
 
-        /* --- NAVİGASYON --- */
+        /* --- MENÜ --- */
         nav {
-            background: #111;
+            background: #111111;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -53,76 +53,151 @@
         }
 
         nav a {
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 10px 15px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9em;
+            font-size: 0.85em;
             transition: 0.3s;
         }
 
-        nav a:hover { 
-            background: #fff; 
-            color: #000; 
-            border-radius: 4px;
-        }
+        nav a:hover { background: #ffffff; color: #000000; border-radius: 4px; }
 
         /* --- İÇERİK --- */
-        .container { max-width: 900px; margin: 60px auto; padding: 0 25px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         
-        /* Navigasyon yüksekliği kadar boşluk bırakıyoruz ki başlıklar altta kalmasın */
         section { 
-            margin-bottom: 100px; 
+            margin-bottom: 80px; 
             scroll-margin-top: 80px; 
+            display: block; /* Görünürlüğü garanti eder */
         }
 
-        h2 { border-left: 10px solid #fff; padding-left: 20px; text-transform: uppercase; margin-bottom: 40px; }
+        h2 { border-left: 8px solid #ffffff; padding-left: 15px; text-transform: uppercase; margin-bottom: 30px; font-size: 1.8em; }
 
-        /* --- ÖZEL MASKELEME PLAYER --- */
+        /* --- VİDEOLAR --- */
         .video-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            justify-items: center;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .video-mask {
             width: 100%;
-            max-width: 380px;
             aspect-ratio: 9 / 16;
             position: relative;
             overflow: hidden;
-            border-radius: 25px;
+            border-radius: 15px;
             border: 2px solid #222;
+            background: #000;
         }
 
         .video-mask iframe {
             position: absolute;
-            top: -8%;
-            left: -8%;
-            width: 116%;
-            height: 116%;
+            top: -7%;
+            left: -7%;
+            width: 114%;
+            height: 114%;
             border: none;
         }
 
-        /* --- GÜNCEL DURUM (DÜZELTİLDİ) --- */
-        .duyuru-alani {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .mac-sonucu {
+        /* --- DUYURU VE İLETİŞİM --- */
+        .card {
             background: #1a1a1a;
             border: 2px solid #ffffff;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
 
-        .skor-baslik { color: #888; text-transform: uppercase; font-size: 0.9em; letter-spacing: 2px; }
-        .skor-deger { font-size: 3.5em; font-weight: bold; letter-spacing: 8px; margin: 10px 0; }
-        .takim-ismi { font-size: 1.2em; font-weight: bold; color: #fff; }
+        .skor { font-size: 3em; font-weight: bold; letter-spacing: 5px; margin: 10px 0; color: #fff; }
+        
+        .insta-btn {
+            background: #ffffff;
+            color: #000000;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            display: block;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+        }
 
-        .iletisim
+        .hashtag {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.4em;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* MOBİL UYUM */
+        @media (max-width: 600px) {
+            .video-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2em; }
+            nav a { padding: 8px 10px; font-size: 0.75em; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.postimg.cc/sg8dZwnC/Screenshot_20260319_225910_Gallery.jpg" alt="Logo" class="logo">
+    <h1>LİSE CEPHE</h1>
+    <p>VAN ATATÜRK ANADOLU LİSESİ</p>
+</header>
+
+<nav>
+    <a href="#biz-kimiz">BİZ KİMİZ</a>
+    <a href="#medya">MEDYA</a>
+    <a href="#duyurular">DUYURULAR</a>
+</nav>
+
+<div class="container">
+
+    <section id="biz-kimiz">
+        <h2>RUHUMUZ (BİZ KİMİZ)</h2>
+        <p style="font-size: 1.1em; line-height: 1.8; color: #ddd;">
+            LiseCephe, Van'ın en köklü eğitim çınarı olan Atatürk Anadolu Lisesi'nin sarsılmaz gücüdür. Siyahın asaleti ve beyazın duruluğuyla armamızı her platformda gururla temsil ediyoruz.
+        </p>
+    </section>
+
+    <section id="medya">
+        <h2>CEPHE MEDYA</h2>
+        <div class="video-grid">
+            <div class="video-mask">
+                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?modestbranding=1&rel=0" allowfullscreen></iframe>
+            </div>
+            <div class="video-mask">
+                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8?modestbranding=1&rel=0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="duyurular">
+        <h2>GÜNCEL DURUM</h2>
+        <div class="card">
+            <span style="color: #888; text-transform: uppercase;">Son Basketbol Galibiyeti</span>
+            <div class="skor">77 - 74</div>
+            <span style="font-weight: bold;">VAN ATATÜRK ANADOLU LİSESİ</span>
+        </div>
+
+        <a href="https://instagram.com/aal_lisecephe" target="_blank" class="insta-btn">
+            📸 Instagram: @aal_lisecephe
+        </a>
+
+        <span class="hashtag">#umuteteninizindeyiz</span>
+    </section>
+
+</div>
+
+<footer style="text-align: center; padding: 40px; color: #333; font-size: 0.8em;">
+    &copy; 2026 LiseCephe | Van Atatürk Anadolu Lisesi
+</footer>
+
+</body>
+</html>
