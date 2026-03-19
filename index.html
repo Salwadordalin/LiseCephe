@@ -15,7 +15,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- HEADER (Okul Görseli Arka Plan) --- */
+        /* --- HEADER --- */
         header {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.postimg.cc/QtG2fVGm/d_w_a_f_e_s_g_r_d_h_t_f_y_j_k_g_t_u_o_f_m_h_d_g_n_s_x_f.jpg');
             background-size: cover;
@@ -29,25 +29,8 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 3px solid #fff;
+            border: 4px solid #fff;
             margin-bottom: 20px;
-            object-fit: cover;
-            background: #000;
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-            text-shadow: 2px 2px 10px #000;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            font-size: 1.2em;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.9;
         }
 
         /* --- NAVİGASYON --- */
@@ -64,145 +47,88 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 25px;
             font-weight: bold;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9em;
-        }
-
-        nav a:hover {
-            color: #000;
-            background: #fff;
-            border-radius: 4px;
-        }
-
-        /* --- İÇERİK KONTEYNER --- */
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        section { margin-bottom: 80px; }
-
-        h2 {
-            font-size: 2em;
-            border-left: 8px solid #ffffff;
-            padding-left: 15px;
-            margin-bottom: 40px;
             text-transform: uppercase;
         }
 
-        /* --- VİDEO BÖLÜMÜ (Editler) --- */
-        .video-grid {
+        /* --- VİDEO BÖLÜMÜ (ÖZEL PLAYER) --- */
+        .video-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-top: 40px;
         }
 
-        .video-wrapper {
-            background: #111;
-            border: 1px solid #333;
-            padding: 10px;
-            border-radius: 8px;
+        .video-container {
+            position: relative;
+            padding-bottom: 177.77%; /* Shorts için dikey oran (9:16) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid #333;
+            background: #000;
         }
 
-        .video-wrapper iframe {
-            width: 100%;
-            aspect-ratio: 9 / 16; /* Shorts formatı için */
-            border-radius: 5px;
+        /* YouTube arayüzünü kenarlardan taşırarak gizleme hilesi */
+        .video-container iframe {
+            position: absolute;
+            top: -10%; 
+            left: -10%;
+            width: 120%;
+            height: 120%;
             border: none;
+            pointer-events: auto; /* Tıklanabilirliği koru */
         }
 
-        /* --- BESTE KARTLARI --- */
-        .beste-listesi { display: grid; gap: 20px; }
-
-        .beste-kart {
-            background: #0a0a0a;
-            border: 1px solid #222;
-            padding: 25px;
-            border-radius: 4px;
-            transition: 0.3s;
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
+            pointer-events: none; /* Altındaki videoya tıklamayı engellemez */
         }
 
-        .beste-kart:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 60px;
-            background: #050505;
-            color: #444;
-            border-top: 1px solid #111;
-        }
-
-        /* --- MOBİL UYUM --- */
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
         @media (max-width: 768px) {
-            .video-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.5em; }
+            .video-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://i.postimg.cc/sg8dZwnC/Screenshot_20260319_225910_Gallery.jpg" alt="LiseCephe Logo" class="logo">
+    <img src="https://i.postimg.cc/sg8dZwnC/Screenshot_20260319_225910_Gallery.jpg" alt="Logo" class="logo">
     <h1>LİSE CEPHE</h1>
     <p>VAN ATATÜRK ANADOLU LİSESİ</p>
 </header>
 
 <nav>
-    <a href="#anasayfa">BİZ KİMİZ</a>
-    <a href="#medya">CEPHE MEDYA</a>
+    <a href="#medya">MEDYA</a>
     <a href="#besteler">BESTELER</a>
 </nav>
 
 <div class="container">
-
-    <section id="anasayfa">
-        <h2>RUHUMUZ</h2>
-        <p style="font-size: 1.1em; line-height: 1.8; color: #ccc;">
-            LiseCephe, Van'ın köklü eğitim çınarı Atatürk Anadolu Lisesi'nin sarsılmaz gücüdür. Siyahın asaleti ve beyazın duruluğuyla, armamızı Van Kalesi'nin gölgesinde gururla temsil ediyoruz.
-        </p>
-    </section>
-
     <section id="medya">
-        <h2>CEPHE MEDYA (EDİTLER)</h2>
-        <div class="video-grid">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE" title="LiseCephe Edit 1" allowfullscreen></iframe>
+        <h2 style="border-left: 5px solid #fff; padding-left: 15px;">CEPHE EDİTLERİ</h2>
+        <div class="video-section">
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FMtGeLAtUgE?autoplay=1&mute=1&loop=1&playlist=FMtGeLAtUgE&controls=0&modestbranding=1&showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="video-overlay"></div>
             </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8" title="LiseCephe Edit 2" allowfullscreen></iframe>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/KuEOPoky6j8?autoplay=1&mute=1&loop=1&playlist=KuEOPoky6j8&controls=0&modestbranding=1&showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="video-overlay"></div>
             </div>
+
         </div>
     </section>
-
-    <section id="besteler">
-        <h2>TRİBÜN SESLERİ</h2>
-        <div class="beste-listesi">
-            <div class="beste-kart">
-                <h3>Siyah Beyaz Sevda</h3>
-                <p>"Siyahına büründük, beyazına vurulduk,<br>
-                   Atatürk Lisesi'nin yolunda biz yorulduk..."</p>
-            </div>
-            <div class="beste-kart">
-                <h3>Vazgeçilmez Aşk</h3>
-                <p>"Kaderimiz yazılmış bu şanlı okulda,<br>
-                   Gönlümüz hep seninle, her zorlu yolda..."</p>
-            </div>
-        </div>
-    </section>
-
 </div>
-
-<footer>
-    &copy; 2026 LiseCephe | Van Atatürk Anadolu Lisesi Taraftar Grubu
-</footer>
 
 </body>
 </html>
